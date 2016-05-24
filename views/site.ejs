@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telphone=no">
+    <link rel='stylesheet' href='/stylesheets/reset.css' />
+    <link rel='stylesheet' href='/stylesheets/site.css' />
+  </head>
+  <body>
+    <header>
+      <span class="back" id="go-back">返回</span>
+      <p>管理能耗节点</p>
+      <span class="map" id="go-to-map">查看地图</span>
+    </header>
+    <div class="container">
+      <div class="tab-wrapper">
+        <span class="active">基站</span>
+        <span id="to-mac-room">机房</span>
+      </div>
+      <div class="search-wrapper">
+        <input type="text" id="keyword" placeholder="输入基站名称进行搜索" />
+        <span id="search">搜索</span>
+      </div>
+      <div class="district-wrapper">
+        <select id="province"><option value="">全国</option></select>
+        <select id="city"><option value="">-</option></select>
+        <select id="county"><option value="">-</option></select>
+      </div>
+      <div class="site-wrapper" id="site-wrapper"></div>
+    </div>
+    <script src="/javascripts/index.js"></script>
+    <script src="/javascripts/site.js"></script>
+  </body>
+</html>

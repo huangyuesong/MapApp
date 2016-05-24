@@ -66,8 +66,12 @@ function closeSpinner(){
     spinnerWin.style.display = "none";
 }
 
+function parseUrlQuery(){
+    var kv = new Map();
+    
+    location.search.substring(1).split('&').map(function(_){
+        kv.set(_.split('=')[0], _.split('=')[1]);
+    });
 
-
-
-
-
+    return kv;
+}

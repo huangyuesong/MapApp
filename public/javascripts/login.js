@@ -24,9 +24,12 @@ window.onload = function(){
         				window.localStorage.cId = JSON.stringify(jsonData.cId);
         				window.localStorage.companyLevel = JSON.stringify(jsonData.companyLevel);
         				window.localStorage.dataPlace = jsonData.dataPlace;
-
-        				location.href = '/map';
-
+        				
+        				if (jsonData.isAdministrator) {
+        					location.href = '/manager/site';
+        				} else {
+	        				location.href = '/map';
+        				}
         			}
 				},
 				fail : function(status){
