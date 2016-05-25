@@ -1,0 +1,61 @@
+header {
+	line-height: 30px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	background: white;
+	z-index: 1;
+}
+header .back {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 0 5px;
+}
+header .save {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 0 5px;
+}
+.container {
+	padding-top: 30px;
+}
+.container ul.row {
+	text-align: center;
+}
+.container ul.row li ul.layout {
+	text-align: center;
+}
+.container ul.row li ul.layout li {
+	display: inline-block;
+	height: 35px;
+}
+.container ul.row li ul.layout li.label {
+	width: 80px;
+	text-align: right;
+	line-height: 35px;
+}
+.container ul.row li ul.layout li.content {
+	width: 200px;
+}
+.container ul.row li ul.layout li.content input[type="text"], input[type="date"], select {
+	width: 100%;
+	height: 35px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	box-sizing: border-box;
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+}
+.container ul.row li button {
+	color: white;
+	background: red;
+	width: 280px;
+	line-height: 35px;
+	border: 0;
+	outline: 0;
+	margin: 5px 0;
+}

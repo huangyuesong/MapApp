@@ -13,7 +13,7 @@ window.onload = function(){
 			alert("用户名或密码不能为空");
 		}else{
 			ajax({
-				url : 'http://127.0.0.1:8080/EnergySystem/mobileLoginIn',
+				url : 'http://10.108.217.190:8080/EnergySystem2/mobileLoginIn',
 				type : 'POST',
 				data : {username : userName , password : userPassword},
 				success : function(responseText, responsexml){

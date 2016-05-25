@@ -20,6 +20,10 @@ window.onload = function(){
 	document.getElementById('to-site').addEventListener('click', function(evt){
 		location.href = '/manager/site';
 	});
+
+	document.getElementById('new').addEventListener('click', function(evt){
+		window.localStorage.macRoom = JSON.stringify({new: true});
+	});
 };
 
 function setMacRooms(pageIndex){
@@ -29,7 +33,7 @@ function setMacRooms(pageIndex){
 		county = document.getElementById('county').value;
 
 	ajax({
-		url : 'http://127.0.0.1:8080/EnergySystem/searchMacRoom',
+		url : 'http://10.108.217.190:8080/EnergySystem2/searchMacRoom',
 		type : 'POST',
 		data: {
 			keyword: keyword,
@@ -46,13 +50,21 @@ function setMacRooms(pageIndex){
 			jsonData.macRooms.map(function(_macRoom){
 				var entry = document.createElement('div'),
 					name = document.createElement('p'),
-					location = document.createElement('p');
+					location = document.createElement('p'),
+					link = document.createElement('a');
 				name.innerText = _macRoom.name;
 				location.innerText = _macRoom.city;
 				entry.setAttribute('class', 'entry');
 				entry.appendChild(name);
 				entry.appendChild(location);
-				document.getElementById('mac-room-wrapper').appendChild(entry);
+				link.appendChild(entry);
+				link.setAttribute('href', '/manager/macRoom/'.concat(_macRoom.id));
+
+				link.addEventListener('click', function(evt){
+					window.localStorage.macRoom = JSON.stringify(_macRoom);
+				});
+
+				document.getElementById('mac-room-wrapper').appendChild(link);
 			});
 
 			var buttonWrapper = document.createElement('div');
@@ -91,7 +103,7 @@ function setMacRooms(pageIndex){
 
 function setDistrictPicker(){
 	ajax({
-		url : 'http://127.0.0.1:8080/EnergySystem/getDistrictList',
+		url : 'http://10.108.217.190:8080/EnergySystem2/getDistrictList',
 		type : 'GET',
 		success : function(responseText, responsexml){
 			var jsonData = JSON.parse(responseText),

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telphone=no">
+    <link rel='stylesheet' href='/stylesheets/reset.css' />
+    <link rel='stylesheet' href='/stylesheets/macRoomDetail.css' />
+  </head>
+  <body>
+    <header>
+      <span class="back" id="go-back">返回</span>
+      <p>管理能耗节点</p>
+      <span class="save" id="save">保存</span>
+    </header>
+    <div class="container">
+      <ul class="row">
+        <li>
+          <ul class="layout">
+            <li class="label">机房编号：</li>  
+            <li class="content"><input type="text" value="" id="identity-no" /></li>
+          </ul>
+        </li>
+        <li>
+          <ul class="layout">
+            <li class="label">机房名称：</li>  
+            <li class="content"><input type="text" value="" id="name" /></li>
+          </ul>
+        </li>
+        <li>
+          <ul class="layout">
+            <li class="label">类型ID：</li>  
+            <li class="content"><input type="text" value="" id="type-id" /></li>
+          </ul>
+        </li>
+        <li>
+          <ul class="layout">
+            <li class="label">机房面积：</li>  
+            <li class="content"><input type="text" value="" id="area" /></li>
+          </ul>
+        </li>
+        <li>
+          <ul class="layout">
+            <li class="label">供电类型：</li>  
+            <li class="content"><input type="text" value="" id="power-id" /></li>
+          </ul>
+        </li>
+        <li>
+          <ul class="layout">
+            <li class="label">电价：</li>  
+            <li class="content"><input type="text" value="" id="power-price" /></li>
+          </ul>
+        </li>
+        <li>
+          <ul class="layout">
+            <li class="label">经度：</li>  
+            <li class="content"><input type="text" value="" id="latitude" /></li>
+          </ul>
+        </li>
+        <li>
+          <ul class="layout">
+            <li class="label">纬度：</li>  
+            <li class="content"><input type="text" value="" id="longitude" /></li>
+          </ul>
+        </li>
+        <li>
+          <ul class="layout">
+            <li class="label">所在楼层：</li>  
+            <li class="content"><input type="text" value="" id="floor" /></li>
+          </ul>
+        </li>
+        <li>
+          <ul class="layout">
+            <li class="label">机楼层高：</li>  
+            <li class="content"><input type="text" value="" id="floor-height" /></li>
+          </ul>
+        </li>
+        <li>
+          <ul class="layout">
+            <li class="label">装机率：</li>  
+            <li class="content"><input type="text" value="" id="device-percent" /></li>
+          </ul>
+        </li>
+        <li>
+          <ul class="layout">
+            <li class="label">是否标杆：</li>  
+            <li class="content">
+              <select id="is-flag">
+                <option value="0">否</option>
+                <option value="1">是</option>
+              </select>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <ul class="layout">
+            <li class="label">所在机楼：</li>  
+            <li class="content"><select id="building"></select></li>
+          </ul>
+        </li>
+        <li>
+          <button id="delete">删除</button>
+        </li>
+      </ul>
+    </div>
+    <script src="/javascripts/index.js"></script>
+    <script src="/javascripts/macRoomDetail.js"></script>
+  </body>
+</html>

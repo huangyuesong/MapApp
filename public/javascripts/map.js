@@ -61,7 +61,7 @@ window.onload = function(){
                     distance : 1.5 
                     };
         ajax({
-            url : 'http://127.0.0.1:8080/EnergySystem/nodeLocation',/*http://127.0.0.1*/
+            url : 'http://10.108.217.190:8080/EnergySystem2/nodeLocation',/*http://10.108.217.190*/
             type : 'POST',
             data : data,
             success : function(responseText, responsexml){
@@ -86,6 +86,7 @@ window.onload = function(){
                         for (var i = 0; i < sites.length; i++) {
                             var latitude = sites[i].latitude,
                                 longitude = sites[i].longitude;
+                                id = sites[i].id;
                             var markerLocation = new qq.maps.LatLng(latitude,longitude);
                                 createMarker(markerLocation,id,icon);
                             };
@@ -147,7 +148,7 @@ window.onload = function(){
         var latLng = new qq.maps.LatLng(markerLocation.lat, markerLocation.lng);
 
         ajax({
-                url : 'http://127.0.0.1:8080/EnergySystem/'+url,
+                url : 'http://10.108.217.190:8080/EnergySystem2/'+url,
                 type : 'POST',
                 data : data,
                 success : function(responseText, responsexml){

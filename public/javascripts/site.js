@@ -20,6 +20,10 @@ window.onload = function(){
 	document.getElementById('to-mac-room').addEventListener('click', function(evt){
 		location.href = '/manager/macRoom';
 	});
+
+	document.getElementById('new').addEventListener('click', function(evt){
+		window.localStorage.site = JSON.stringify({new: true});
+	});
 };
 
 function setSites(pageIndex){
@@ -29,7 +33,7 @@ function setSites(pageIndex){
 		county = document.getElementById('county').value;
 
 	ajax({
-		url : 'http://127.0.0.1:8080/EnergySystem/searchSite',
+		url : 'http://10.108.217.190:8080/EnergySystem2/searchSite',
 		type : 'POST',
 		data: {
 			keyword: keyword,
@@ -46,13 +50,21 @@ function setSites(pageIndex){
 			jsonData.sites.map(function(_site){
 				var entry = document.createElement('div'),
 					name = document.createElement('p'),
-					location = document.createElement('p');
+					location = document.createElement('p'),
+					link = document.createElement('a');
 				name.innerText = _site.name;
 				location.innerText = _site.city;
 				entry.setAttribute('class', 'entry');
 				entry.appendChild(name);
 				entry.appendChild(location);
-				document.getElementById('site-wrapper').appendChild(entry);
+				link.appendChild(entry);
+				link.setAttribute('href', '/manager/site/'.concat(_site.id));
+
+				link.addEventListener('click', function(evt){
+					window.localStorage.site = JSON.stringify(_site);
+				});
+
+				document.getElementById('site-wrapper').appendChild(link);
 			});
 
 			var buttonWrapper = document.createElement('div');
@@ -91,7 +103,7 @@ function setSites(pageIndex){
 
 function setDistrictPicker(){
 	ajax({
-		url : 'http://127.0.0.1:8080/EnergySystem/getDistrictList',
+		url : 'http://10.108.217.190:8080/EnergySystem2/getDistrictList',
 		type : 'GET',
 		success : function(responseText, responsexml){
 			var jsonData = JSON.parse(responseText),
@@ -133,6 +145,7 @@ function setDistrictPicker(){
 					document.getElementById('city').appendChild(option);
 				});
 
+				PAGE_INDEX = 1;
 				setSites(PAGE_INDEX);
 			});
 
@@ -153,10 +166,12 @@ function setDistrictPicker(){
 					document.getElementById('county').appendChild(option);
 				});
 
+				PAGE_INDEX = 1;
 				setSites(PAGE_INDEX);
 			});
 
 			document.getElementById('county').addEventListener('change', function(evt){
+				PAGE_INDEX = 1;
 				setSites(PAGE_INDEX);
 			});
 		},
