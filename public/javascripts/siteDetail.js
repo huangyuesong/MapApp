@@ -14,6 +14,8 @@ window.onload = function(){
 		document.getElementById('use-date').value = site.useDate.substring(0, 10);
 		document.getElementById('carrier-count').value = site.carrierCount;
 		document.getElementById('is-flag').selectedIndex = Number(site.isFlag);
+	} else {
+		document.getElementById('delete').style.display = 'none';
 	}
 
 	setLocation(site.city);

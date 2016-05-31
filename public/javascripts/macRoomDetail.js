@@ -14,6 +14,8 @@ window.onload = function(){
 		document.getElementById('floor-height').value = macRoom.floorHeight;
 		document.getElementById('device-percent').value = macRoom.devicePercent;
 		document.getElementById('is-flag').selectedIndex = Number(macRoom.isFlag);
+	} else {
+		document.getElementById('delete').style.display = 'none';
 	}
 
 	setBuilding(macRoom.buildingId);
